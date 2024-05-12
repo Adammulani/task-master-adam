@@ -3,9 +3,11 @@ import "./Contact.css";
 import {MdCall} from 'react-icons/md';
 import {BsFillChatDotsFill} from 'react-icons/bs';
 import { IoLogoLinkedin } from "react-icons/io5";
+import { MdEmail } from "react-icons/md";
+
 
 export const Contact = () => {
-  const handleChatButtonClick = () => {
+  const handleLinkedinButtonClick = () => {
    
     const username = 'adam-mulani';
     const linkedInChatUrl = `https://www.linkedin.com/in/${username}`;
@@ -34,6 +36,8 @@ export const Contact = () => {
             inquiries,
             <br /> feel free to reach out to us using the contact information
             provided below.
+            <br/>
+            You can reach out via email or connect with me on LinkedIn
           </span>
 
           <div className="flexColStart contactModes">
@@ -43,15 +47,15 @@ export const Contact = () => {
               <div className="flexColCenter mode">
                 <div className="flexStart">
                   <div className="flexCenter icon">
-                    <MdCall size={25} />
+                    <MdEmail size={27} />
                   </div>
                   <div className="flexColStart detail">
-                    <span className='primaryText'>Call</span>
-                    <span className='secondaryText'>0000000000</span>
+                    <span className='primaryText'>Send E-mail</span>
+                    <span className='secondaryText'></span>
                   </div>
                 </div>
-                <div className="flexCenter button" onClick={handleCallNowClick}>
-                    Call Now
+                <div className="flexCenter button" >
+                <a href="mailto:aadammulani11@gmail.com">Open Mail</a>
                 </div>
               </div>
 
@@ -62,57 +66,24 @@ export const Contact = () => {
                     <IoLogoLinkedin size={25} />
                   </div>
                   <div className="flexColStart detail">
-                    <span className='primaryText'>Chat</span>
-                    <span className='secondaryText'>Linkedin</span>
+                    <span className='primaryText'>Connect</span>
+                    <span className='secondaryText'></span>
                   </div>
                 </div>
-                <div className="flexCenter button" onClick={handleChatButtonClick}>
-                    Chat Now
+                <div className="flexCenter button" onClick={handleLinkedinButtonClick}>
+                    Linkedin
                 </div>
               </div>
             </div>
 
-            {/*Second row */}
-            <div className="flexStart row">
-                {/*Third mode of contact */}
-              <div className="flexColCenter mode">
-                <div className="flexStart">
-                  <div className="flexCenter icon">
-                    <BsFillChatDotsFill size={25} />
-                  </div>
-                  <div className="flexColStart detail">
-                    <span className='primaryText'>Video Call</span>
-                    <span className='secondaryText'>0000000000</span>
-                  </div>
-                </div>
-                <div className="flexCenter button" onClick={handleCallNowClick}>
-                    Video Call Now
-                </div>
-              </div>
-
-             {/*Fourth mode oc contact */}
-              <div className="flexColCenter mode">
-                <div className="flexStart">
-                  <div className="flexCenter icon">
-                    <IoLogoLinkedin size={25} />
-                  </div>
-                  <div className="flexColStart detail">
-                    <span className='primaryText'>Message</span>
-                    <span className='secondaryText'>Linkedin</span>
-                  </div>
-                </div>
-                <div className="flexCenter button" onClick={handleChatButtonClick}>
-                    Message Now
-                </div>
-              </div>
-            </div>
+           
           </div>
         </div>
 
         {/* Right side */}
         <div className="c-right">
           <div className="image-container ">
-            <img src="contact.jpeg" alt=""  />
+            <img src="contact.png" alt=""  />
           </div>
         </div>
       </div>

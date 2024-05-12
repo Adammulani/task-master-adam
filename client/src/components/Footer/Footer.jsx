@@ -19,9 +19,10 @@ export const Footer = () => {
         </div>
         <div className="flexColStart f-right">
           <span className="primaryText">Information</span>
+          <span className="secondaryText">Adam Mulani</span>
           <span className="secondaryText">Maharashtra, India</span>
-          <div className="flexCenter f-menu">
-          {/* //copyright */}
+          <div className="flexCenter copyright-text">
+          <p>&copy; 2024 Task Master. All rights reserved.</p>
           </div>
         </div>
       </div>
