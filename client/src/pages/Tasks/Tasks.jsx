@@ -59,12 +59,12 @@ export const Tasks = () => {
                 )
                 .map((task, i) => (
                   <>
-                    <TaskCard task={task} key={i} />
+                    <TaskCard task={task} key={task.id} />
                   </>
                 ))
             ) : (
               <>
-                <div className="primaryText flexColCenter" key={123}>
+                <div className="primaryText flexColCenter" >
                   <div>You don't have any Task</div>
                   <button className="button" onClick={()=>navigate("/add-task")}> Add Task</button>
                 </div>
