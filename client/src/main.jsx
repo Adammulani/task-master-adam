@@ -10,7 +10,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     domain="dev-4kbys46e12vbytul.us.auth0.com"
     clientId="CKO26gwdA3ehhXsKMEBFRFHvL7EGojWG"
     authorizationParams={{
-      redirect_uri:"http://localhost:5173"
+      redirect_uri:"https://task-master-adam-tan.vercel.app"
 
     }}
     audience="http://localhost:3001/task"
