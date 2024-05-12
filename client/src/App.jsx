@@ -40,6 +40,7 @@ function App() {
                      <Route index element={<Tasks/>}/>
                      <Route path=":taskId" element={<Task/>}/>
               </Route>
+              <Route path="*" element={<Website/>} />
 
             </Route>
           </Routes>

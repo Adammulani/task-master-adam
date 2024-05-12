@@ -58,15 +58,17 @@ export const Tasks = () => {
                       .includes(filter.toLowerCase())
                 )
                 .map((task, i) => (
-                  <>
+                 
                     <TaskCard task={task} key={task.id} />
-                  </>
+              
                 ))
             ) : (
               <>
-                <div className="primaryText flexColCenter" >
-                  <div>You don't have any Task</div>
+                <div className="secondaryText flexColCenter no-data" >
+                  <div>Eihter you don't have any Task added or there might be some issue while refreshing, please go to home and come again</div>
+                  <div className="flexCenter"> 
                   <button className="button" onClick={()=>navigate("/add-task")}> Add Task</button>
+                  </div>
                 </div>
               </>
             )

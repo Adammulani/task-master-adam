@@ -18,7 +18,7 @@ export const GetStarted = () => {
                 to your favorites, and searching through all your tasks.
               </span>
               <button className="button" onClick={loginWithRedirect}>
-                Login
+                Login / SignUp
               </button>
               
             </>
