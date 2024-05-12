@@ -135,7 +135,7 @@ export const EditTask = () => {
         <div className="paddings  from-container">
         <div className="primaryText task-header">
             <div className="task-header-text">
-                Update Task
+                Edit Task Details
             </div>
         </div>
           <Box maw="100%" mx="md" my="md">

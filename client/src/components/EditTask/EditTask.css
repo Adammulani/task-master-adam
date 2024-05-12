@@ -155,7 +155,11 @@
     font-size: 0.8rem;
    }
    .task-header-text{
-    font-size: 1.1rem;
+    font-size: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
    }
 }
 .properties-container{

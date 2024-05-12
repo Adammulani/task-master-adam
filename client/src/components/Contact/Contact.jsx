@@ -112,7 +112,7 @@ export const Contact = () => {
         {/* Right side */}
         <div className="c-right">
           <div className="image-container ">
-            <img src="contact.jpeg" alt="" />
+            <img src="contact.jpeg" alt=""  />
           </div>
         </div>
       </div>
