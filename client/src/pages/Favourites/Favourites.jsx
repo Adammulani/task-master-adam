@@ -5,11 +5,13 @@ import "../Tasks/Tasks.css"
 import UserDetailContext from "../../context/userDetailContext";
 import useTasks from "../../components/hooks/useTasks";
 import { TaskCard } from "../../components/TaskCard/TaskCard";
+import { useNavigate } from "react-router-dom";
 
 export const Favourites = () => {
   const { data, isError, isLoading } = useTasks();
   const {userDetails:{favourites}}=useContext(UserDetailContext)
   const [filter, setFilter] = useState("");
+  const navigate=useNavigate();
   if (isError) {
     return (
       <div className="wrapper">
@@ -39,7 +41,7 @@ export const Favourites = () => {
           {
             //data.map((card,i)=>(<PropertyCard card={card} key={i}/>))
 
-            data
+           data && data.length > 0 ?( data
               ?.filter((task) =>
                 favourites?.includes(task.id)
               )
@@ -51,7 +53,15 @@ export const Favourites = () => {
               )
               .map((task, i) => (
                 <TaskCard task={task} key={i} />
-              ))
+              )))
+              :(
+                <>
+                  <div className="primaryText flexColCenter">
+                    <div>You don't have Favourite Task</div>
+                    <button className="button no-favourites" onClick={()=>navigate("/tasks")}> See All Tasks</button>
+                  </div>
+                </>
+              )
           }
         </div>
       </div>

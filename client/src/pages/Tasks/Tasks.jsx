@@ -5,10 +5,13 @@ import useTasks from "../../components/hooks/useTasks";
 import { PuffLoader } from "react-spinners";
 import { TaskCard } from "../../components/TaskCard/TaskCard";
 import UserDetailContext from "../../context/userDetailContext";
+import { useNavigate } from "react-router-dom";
+import { replace } from "lodash";
 
 export const Tasks = () => {
   const { data, isError, isLoading } = useTasks();
   const [filter, setFilter] = useState("");
+  const navigate=useNavigate()
   if (isError) {
     return (
       <div className="wrapper">
@@ -17,12 +20,12 @@ export const Tasks = () => {
     );
   }
 
-  const{userDetails:{myTasks}}=useContext(UserDetailContext);
+  const {
+    userDetails: { myTasks },
+  } = useContext(UserDetailContext);
+ 
 
-  useEffect(()=>{
-
-  },[myTasks])
-
+  useEffect(() => {}, [myTasks]);
 
   if (isLoading) {
     return (
@@ -44,14 +47,29 @@ export const Tasks = () => {
         <div className="paddings flexCenter properties">
           {
             //data.map((card,i)=>(<PropertyCard card={card} key={i}/>))
-            data?.filter((task) =>
-              myTasks?.includes(task?.id)
-            ).filter((task) =>
-                task?.title.toLowerCase().includes(filter.toLowerCase()) ||
-                task?.description.toLowerCase().includes(filter.toLowerCase()) 
-              ).map((task, i) => (
-                <TaskCard task={task} key={i} />
-              ))
+            data && data.length > 0 ? (
+              data
+                ?.filter((task) => myTasks?.includes(task?.id))
+                .filter(
+                  (task) =>
+                    task?.title.toLowerCase().includes(filter.toLowerCase()) ||
+                    task?.description
+                      .toLowerCase()
+                      .includes(filter.toLowerCase())
+                )
+                .map((task, i) => (
+                  <>
+                    <TaskCard task={task} key={i} />
+                  </>
+                ))
+            ) : (
+              <>
+                <div className="primaryText flexColCenter">
+                  <div>You don't have any Task</div>
+                  <button className="button" onClick={()=>navigate("/add-task")}> Add Task</button>
+                </div>
+              </>
+            )
           }
         </div>
       </div>

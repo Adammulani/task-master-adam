@@ -173,7 +173,7 @@ export const EditTask = () => {
                 </div>
                 <div className="secondaryText deadline-text">
                   {!value
-                    ? task?.deadline
+                    ? task?.deadline!=="Invalid Date" ? task?.deadline : " Deadline is not set"
                     : dayjs(value).format("DD/MM/YYYY")}
                 </div>
               </div>
