@@ -12,7 +12,7 @@ export const NavigateEdit = ({id}) => {
    
 
     const handleEdit=()=>{
-        if(validateLogin())
+        if(validateLogin())    //if user is logged in then only navigate to edit task page
             {
                 navigate(`/edit-task/${id}`)
             }

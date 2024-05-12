@@ -12,7 +12,7 @@ export const useFavourites = () => {
 
     const {data,isLoading,isError,refetch}=useQuery({
         queryKey:"AllFavourites",
-        queryFn:()=>getAllFavTask(user?.email,userDetails?.token),
+        queryFn:()=>getAllFavTask(user?.email,userDetails?.token),     //query function to make api call to get all the tasks marked as favourite
         onSuccess:(data)=>setUserDetails((prev)=>({...prev,favourites:data})),
         enabled:user!==undefined,
         staleTime:30000
@@ -22,7 +22,7 @@ export const useFavourites = () => {
     useEffect(()=>{
 
       queryRef.current && queryRef.current()
-    },[userDetails?.token])
+    },[userDetails?.token])  //whenever token changes, execute queryFn
 
 
   return {data,isError,isLoading,refetch};

@@ -10,7 +10,7 @@ export const Contact = () => {
   const handleLinkedinButtonClick = () => {
    
     const username = 'adam-mulani';
-    const linkedInChatUrl = `https://www.linkedin.com/in/${username}`;
+    const linkedInChatUrl = `https://www.linkedin.com/in/${username}`;  //linkedin url
     
     // Open LinkedIn chat URL in a new tab
     window.open(linkedInChatUrl, '_blank');

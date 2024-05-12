@@ -16,7 +16,7 @@ export const HeroRight = () => {
 
     const handleAllTasksBtn=()=>{
         if(!validateLogin()){
-            toast.error(" You must be logged in",{position:"top-right"})
+            toast.error(" You must be logged in",{position:"top-right"}) //if user click without login
         }
         else{
                    navigate("/tasks")
@@ -25,7 +25,7 @@ export const HeroRight = () => {
 
     const handleAddTaskBtn=()=>{
         if(!validateLogin()){
-            toast.error(" You must be logged in",{position:"top-right"})
+            toast.error(" You must be logged in",{position:"top-right"})   //if user click without login
         }
         else{
           navigate("/add-task")

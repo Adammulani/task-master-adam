@@ -20,7 +20,7 @@ export const Favourites = () => {
     );
   }
 
-  if (isLoading) {
+  if (isLoading) {   //show puffloader until favourites tasks are fetched
     return (
       <div className="wrapper flexCenter" style={{ height: "60vh" }}>
         <PuffLoader
@@ -39,28 +39,28 @@ export const Favourites = () => {
         <SearchBar filter={filter} setFilter={setFilter} />
         <div className="paddings flexCenter properties">
           {
-            //data.map((card,i)=>(<PropertyCard card={card} key={i}/>))
-
+            
+            //if there are tasks marked as favourites then only shoe tasks
            data && data.length > 0 ?( data
               ?.filter((task) =>
-                favourites?.includes(task.id)
+                favourites?.includes(task.id)  //if data from database include task marked as favourites
               )
               .filter(
                 (task) =>
-                  task.title.toLowerCase().includes(filter.toLowerCase()) ||
+                  task.title.toLowerCase().includes(filter.toLowerCase()) ||  //filter based on title and description
                   task.description.toLowerCase().includes(filter.toLowerCase())
                   
               )
               .map((task, i) => (
-                <TaskCard task={task} key={i} />
+                <TaskCard task={task} key={i} />   //display card with specific id
               )))
               :(
-                <>
+                  //if don't have any favourite ask
                   <div className="primaryText flexColCenter">
-                    <div>You don't have Favourite Task</div>
+                    <div>Either You don't have any Favourite Task or there some problem with refresh, go to home page and try again </div>
                     <button className="button no-favourites" onClick={()=>navigate("/tasks")}> See All Tasks</button>
                   </div>
-                </>
+                
               )
           }
         </div>

@@ -44,6 +44,8 @@ export const AddNewTask = () => {
     userDetails: { token },
   } = useContext(UserDetailContext);
 
+
+  //useForm form to implement the form
   const form = useForm({
     initialValues: {
       title: taskDetails.title,
@@ -55,6 +57,8 @@ export const AddNewTask = () => {
     },
   });
 
+
+  //destructure the form values
   const { title, description, status } = form.values;
   const handleSubmit = () => {
     const { hasErrors } = form.validate();
@@ -64,7 +68,7 @@ export const AddNewTask = () => {
         description,
         status,
       }));
-      mutate();
+      mutate();  //call mutate function to call createTask() function
       
     }
   };
@@ -87,7 +91,7 @@ export const AddNewTask = () => {
       onError:({response})=>toast.error(response.data.message,{position:"bottom-right"}),
       onSettled:()=>{
         toast.success("Task Added Successfully",{position:"top-right"});
-        setTaskDetails({
+        setTaskDetails({    //after adding task details, reset the task details
           title: "",
           description: "",
           deadline: "",
@@ -95,9 +99,9 @@ export const AddNewTask = () => {
           userEmail: user?.email,
         });
         setValue(null)
-        form.reset();
+        form.reset();  //reset form fields once task added
 
-        refetchTasks();
+        refetchTasks();  // after adding new task, refetch the tasks to for data consistency
       }
   });
 

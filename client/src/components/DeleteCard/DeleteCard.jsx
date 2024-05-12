@@ -12,7 +12,7 @@ export const DeleteCard = ({id}) => {
     const {user}=useAuth0()
 
     const{userDetails:{myTasks,token},setUserDetails}=useContext(UserDetailContext);
-
+    //get jwttoken to prevent unauthorized access
   
     const {mutate}=useMutation({
         mutationFn:()=>deleteTask(id,token),
@@ -20,7 +20,7 @@ export const DeleteCard = ({id}) => {
             setUserDetails((prev)=>(
                 {
                     ...prev,
-                    myTasks:updateMyTasks(id,prev.myTasks)
+                    myTasks:updateMyTasks(id,prev.myTasks) //update tasks on ui after deleting the task from DB
                 }
             ))
         }

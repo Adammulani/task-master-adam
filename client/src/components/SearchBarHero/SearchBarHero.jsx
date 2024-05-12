@@ -11,7 +11,7 @@ export const SearchBarHero = () => {
   const handleSearch=()=>{
 
     if(validateLogin()){
-      navigate(`/herosearch/${searchFilter}`)
+      navigate(`/herosearch/${searchFilter}`)   //if user is logged in then only proceed to search page
     }
   }
   

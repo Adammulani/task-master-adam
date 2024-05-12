@@ -5,20 +5,13 @@ import OutsideClickHandler from 'react-outside-click-handler';
 import { Link, NavLink } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 import ProfileMenu from '../ProfileMenu/ProfileMenu.jsx';
-import { useAuthCheck } from '../hooks/useAuthCheck.jsx';
 
 const Header = () => {
   const [menuOpened,setMenuOpened]=useState(false);
   const {loginWithRedirect,isAuthenticated,user,logout}=useAuth0()
-  const [modalOpened,setModalOpened]=useState(false);
-  const {validateLogin}=useAuthCheck()
+  
 
 
-  const handleAddPropertyClick=()=>{
-      if(validateLogin()){
-        setModalOpened(true)
-      }
-  }
 
   const getMenuStyles=(menuOpened)=>{
     if(document.documentElement.clientWidth <=800){
@@ -32,7 +25,7 @@ const Header = () => {
           <img src="./logoheader.png" alt="logo" width={100}></img>
         </Link>
 
-        <OutsideClickHandler
+        <OutsideClickHandler           //outside click handler to manage Profile Menu
           onOutsideClick={() => {
             setMenuOpened(false);
           }}
@@ -40,14 +33,19 @@ const Header = () => {
           <div className="flexCenter h-menu" style={getMenuStyles(menuOpened)}>
           <NavLink to="/">Home</NavLink>
            {isAuthenticated && <> <NavLink to="/add-task">Add Task</NavLink>
-            <NavLink to="/tasks">All Task</NavLink></>}
+            <NavLink to="/tasks">All Task</NavLink></>
+            
+            //if user is authenticated then only show Add task and All task
+            }
+
+
             
             <a href="mailto:aadammulani11@gmail.com">Contact</a>
 
         
             {/* login button */}
             {
-              !isAuthenticated?
+              !isAuthenticated?    //if user is not logged in then only show login button
               (<button className="button" onClick={loginWithRedirect}>
                 Login / SignUp
               </button> ):

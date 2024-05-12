@@ -14,7 +14,7 @@ import UserDetailContext from '../../context/userDetailContext.js';
 
   const {data,isLoading,isError,refetch}=useQuery(
       "allTasks",   // this is the name/key
-      ()=>getAllTasks(user?.email,token),
+      ()=>getAllTasks(user?.email,token),   //get all the tasks created by current user, pass token to prevent unauthorized token
       {refetchOnWindowFocus:false}
   );
   

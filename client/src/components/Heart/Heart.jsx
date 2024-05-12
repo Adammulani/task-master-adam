@@ -16,16 +16,16 @@ export const Heart = ({id}) => {
     const{userDetails:{favourites,token},setUserDetails}=useContext(UserDetailContext);
 
     useEffect(()=>{
-        setHeartColor(()=>checkFavourites(id,favourites))
+        setHeartColor(()=>checkFavourites(id,favourites))  //function to check if it was already in favourites array or not
     },[favourites])
 
     const {mutate}=useMutation({
-        mutationFn:()=>toFavTask(id,user?.email,token),
+        mutationFn:()=>toFavTask(id,user?.email,token),   //api call function to update favtasks
         onSuccess:()=>{
             setUserDetails((prev)=>(
                 {
                     ...prev,
-                    favourites:updateFavourites(id,prev.favourites)
+                    favourites:updateFavourites(id,prev.favourites)   //function to update favourites array, if task was already present in it then remove else add to array
                 }
             ))
         }

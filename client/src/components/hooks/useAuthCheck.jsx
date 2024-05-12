@@ -5,7 +5,7 @@ import { toast } from 'react-toastify'
 export const useAuthCheck = () =>{
     const {isAuthenticated}=useAuth0()
 
-    const validateLogin=()=>{
+    const validateLogin=()=>{   //return true if user is logged in else false
         if(!isAuthenticated){
             toast.error("You must be logged in",{position:"top-right"})
             return false

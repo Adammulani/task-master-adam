@@ -37,7 +37,7 @@ export const EditTask = () => {
       data: task,
       isLoading:isLoadingTask,
       isError,
-    } = useQuery(["task", id], () => getTask(id,token));
+    } = useQuery(["task", id], () => getTask(id,token));   //fetch data of particular task based on id from DB
   const { user } = useAuth0();
   const [modalOpened, setModalOpened] = useState(false);
   const { validateLogin } = useAuthCheck();
@@ -54,7 +54,7 @@ export const EditTask = () => {
 
   useEffect(()=>{
     if(!isLoadingTask){
-        form.setValues({
+        form.setValues({     // populate the form fields with task data
             title: task?.title,
             description:task?.description,
             deadline:task?.deadline,
@@ -66,7 +66,7 @@ export const EditTask = () => {
   },[isLoadingTask])
 
   const form = useForm({
-    initialValues: {
+    initialValues: {   //set task values to initial values
         title: task?.title || "",
         description: task?.description || "",
         deadline: task?.deadline || "",
@@ -101,11 +101,11 @@ export const EditTask = () => {
   //mutation function to add the new task to database
   const { mutate, isLoading } = useMutation({
     mutationFn:async () =>
-     await updateTask(id,{
+     await updateTask(id,{  //call update function from api.js with updated values
         
             title:title,
         description:description,
-        deadline: !value ? task.deadline : dayjs(value).format("DD/MM/YYYY"),
+        deadline: !value ? task.deadline : dayjs(value).format("DD/MM/YYYY"),    //if new date is not selected assign previous one
         status:status,
         
         

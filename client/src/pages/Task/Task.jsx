@@ -68,7 +68,7 @@ export const Task = () => {
         <div className="paddings flexCenter single-properties">
          
           {
-            task ?
+            task ?  //check if task has it's values i.e it is not undefined
           (
           <div className="flexColStart  ">
             <div className="primaryText text task-title">{task.title}</div>

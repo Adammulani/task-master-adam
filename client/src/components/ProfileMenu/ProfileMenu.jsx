@@ -20,7 +20,7 @@ const ProfileMenu = ({user,logout}) => {
             
 
             <Menu.Item onClick={()=>{
-                localStorage.clear();
+                localStorage.clear();   //before logging out clear local storage
                 logout();
             }}>
                 Logout

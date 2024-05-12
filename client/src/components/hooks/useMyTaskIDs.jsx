@@ -12,8 +12,8 @@ export const useMyTaskIDs = () => {
 
     const {data,isLoading,isError,refetch}=useQuery({
         queryKey:"TaskIDs",
-        queryFn:()=>getTaskIDs(user?.email,userDetails?.token),
-        onSuccess:(data)=>setUserDetails((prev)=>({...prev,myTasks:data})),
+        queryFn:()=>getTaskIDs(user?.email,userDetails?.token),    // api call to get the tasks created by current use
+        onSuccess:(data)=>setUserDetails((prev)=>({...prev,myTasks:data})),  //update userdetails i.e task details
         enabled:user!==undefined,
         staleTime:30000
     })
@@ -22,7 +22,7 @@ export const useMyTaskIDs = () => {
     useEffect(()=>{
 
       queryRef.current && queryRef.current()
-    },[userDetails?.token])
+    },[userDetails?.token])  //whenever token value changes execute queryFn
 
 
   return {data,isError,isLoading,refetch};
