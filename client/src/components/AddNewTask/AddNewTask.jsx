@@ -17,11 +17,9 @@ import {
   Modal,
 } from "@mantine/core";
 import { useAuth0 } from "@auth0/auth0-react";
-import { DatePicker } from "@mantine/dates";
 import { useAuthCheck } from "../hooks/useAuthCheck";
 import { DatePickerModal } from "../DatePickerModal/DatePickerModal";
 import { useNavigate } from "react-router-dom";
-import useTasks from "../hooks/useTasks";
 import UserDetailContext from "../../context/userDetailContext";
 import { useMutation } from "react-query";
 import { toast } from "react-toastify";
@@ -33,6 +31,7 @@ export const AddNewTask = () => {
   const { validateLogin } = useAuthCheck();
   const [value, setValue] = useState(null);
 
+
   const navigate=useNavigate();
   const [taskDetails, setTaskDetails] = useState({
     title: "",
@@ -41,6 +40,9 @@ export const AddNewTask = () => {
     status: "",
     userEmail: user?.email,
   });
+  const {
+    userDetails: { token },
+  } = useContext(UserDetailContext);
 
   const form = useForm({
     initialValues: {
@@ -56,7 +58,7 @@ export const AddNewTask = () => {
   const { title, description, status } = form.values;
   const handleSubmit = () => {
     const { hasErrors } = form.validate();
-    if (!hasErrors) {
+    if (!hasErrors  && validateLogin()) {
       setTaskDetails((prev) => ({
         title,
         description,
@@ -69,9 +71,7 @@ export const AddNewTask = () => {
 
 
  
-  const {
-    userDetails: { token },
-  } = useContext(UserDetailContext);
+
   const { refetch: refetchTasks } = useMyTaskIDs();
 
   //mutation function to add the new task to database

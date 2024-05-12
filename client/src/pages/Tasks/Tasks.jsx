@@ -64,7 +64,7 @@ export const Tasks = () => {
                 ))
             ) : (
               <>
-                <div className="primaryText flexColCenter">
+                <div className="primaryText flexColCenter" key={123}>
                   <div>You don't have any Task</div>
                   <button className="button" onClick={()=>navigate("/add-task")}> Add Task</button>
                 </div>

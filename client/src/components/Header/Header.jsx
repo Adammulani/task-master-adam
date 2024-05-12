@@ -38,8 +38,10 @@ const Header = () => {
           }}
         >
           <div className="flexCenter h-menu" style={getMenuStyles(menuOpened)}>
-            <NavLink to="/">Add Task</NavLink>
-            <NavLink to="/">All Task</NavLink>
+          <NavLink to="/">Home</NavLink>
+           {isAuthenticated && <> <NavLink to="/add-task">Add Task</NavLink>
+            <NavLink to="/tasks">All Task</NavLink></>}
+            
             <a href="mailto:aadammulani11@gmail.com">Contact</a>
 
         

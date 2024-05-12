@@ -157,6 +157,7 @@ export const getTask = async (id, token) => {
 };
 
 export const createTask = async (data, token) => {
+  if(!token) return
   try {
     const res = await api.post(
       `/task/create`,

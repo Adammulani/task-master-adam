@@ -5,7 +5,6 @@ import { prisma } from "../config/prismaConfig.js";
 export const createTask = asyncHandler(async (req, res) => {
   const { title, description, status, deadline, userEmail } = req.body.data;
 
-  console.log(req.body.data);
 
   try {
     const task = await prisma.task.create({
@@ -59,10 +58,8 @@ export const getTask = asyncHandler(async (req, res) => {
 //update a task by id
 
 export const updateTask = asyncHandler(async (req, res) => {
-  //console.log("inside updateTask at server side",req.body);
   const {id} = req.params;
   const { title, description,deadline, status} = req.body.data;
-  //console.log(title, description,deadline, status)
   try {
     const updatedTask = await prisma.task.update({
       where: { id },
