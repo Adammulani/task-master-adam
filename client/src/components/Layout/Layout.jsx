@@ -14,7 +14,7 @@ export const Layout = () => {
   useFavourites()
   useMyTaskIDs()
   
-  const { isAuthenticated, user, getAccessTokenSilently } = useAuth0();
+  const { isAuthenticated, user,getAccessTokenWithPopup } = useAuth0();
   const { setUserDetails } = useContext(UserDetailContext);
 
   const { mutate } = useMutation({
@@ -25,12 +25,14 @@ export const Layout = () => {
   useEffect(() => {
     const getTokenAndRegister = async () => {
 
-      const res = await getAccessTokenSilently({
+      const res = await getAccessTokenWithPopup({
         authorizationParams: {
           audience: "http://localhost:3001/task",
           scope: "openid profile email",
+          prompt: "none",
         },
       });
+      
       localStorage.setItem("access_token", res);
       setUserDetails((prev) => ({ ...prev, token: res }));
      mutate(res)

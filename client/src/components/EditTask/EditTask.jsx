@@ -30,12 +30,14 @@ import { useMyTaskIDs } from "../hooks/useMyTaskIDs";
 export const EditTask = () => {
     const { pathname } = useLocation();
     const id = pathname.split("/").slice(-1)[0];
+  const{userDetails:{token}}=useContext(UserDetailContext);
+
 
     const {
       data: task,
       isLoading:isLoadingTask,
       isError,
-    } = useQuery(["task", id], () => getTask(id));
+    } = useQuery(["task", id], () => getTask(id,token));
   const { user } = useAuth0();
   const [modalOpened, setModalOpened] = useState(false);
   const { validateLogin } = useAuthCheck();
@@ -53,10 +55,10 @@ export const EditTask = () => {
   useEffect(()=>{
     if(!isLoadingTask){
         form.setValues({
-            title: task.title,
-            description:task.description,
-            deadline:task.deadline,
-            status:task.status,
+            title: task?.title,
+            description:task?.description,
+            deadline:task?.deadline,
+            status:task?.status,
             
           })
     }
@@ -93,9 +95,7 @@ export const EditTask = () => {
 
 
  
-  const {
-    userDetails: { token },
-  } = useContext(UserDetailContext);
+ 
   const { refetch: refetchTasks } = useMyTaskIDs();
 
   //mutation function to add the new task to database

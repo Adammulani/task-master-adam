@@ -5,9 +5,8 @@ import { createUser,getAllTasks,deleteTask, toFavTask,getAllFavouriteTasks} from
 
 const router=express.Router()
 
-router.post("/register",createUser);
-router.post("/all-tasks",getAllTasks);
-router.post("/delete-task/:id",deleteTask);
+router.post("/register",jwtCheck,createUser);
+router.post("/all-tasks",jwtCheck,getAllTasks);
 
 router.post("/toFavTask/:tid",jwtCheck,toFavTask);
 router.post("/allFav",jwtCheck,getAllFavouriteTasks);

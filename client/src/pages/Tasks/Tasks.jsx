@@ -45,10 +45,10 @@ export const Tasks = () => {
           {
             //data.map((card,i)=>(<PropertyCard card={card} key={i}/>))
             data?.filter((task) =>
-              myTasks?.includes(task.id)
+              myTasks?.includes(task?.id)
             ).filter((task) =>
-                task.title.toLowerCase().includes(filter.toLowerCase()) ||
-                task.description.toLowerCase().includes(filter.toLowerCase()) 
+                task?.title.toLowerCase().includes(filter.toLowerCase()) ||
+                task?.description.toLowerCase().includes(filter.toLowerCase()) 
               ).map((task, i) => (
                 <TaskCard task={task} key={i} />
               ))

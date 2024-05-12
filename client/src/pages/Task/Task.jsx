@@ -18,12 +18,18 @@ import { GrLinkPrevious } from "react-icons/gr";
 export const Task = () => {
   const { pathname } = useLocation();
   const id = pathname.split("/").slice(-1)[0];
+  const{userDetails:{token}}=useContext(UserDetailContext);
 
-  const {data:task, isLoading, isError } = useQuery(["task", id], () =>
-    getTask(id)
+  
+
+  const {data:task, isLoading, isError } = useQuery(["task", id],  () =>
+   (
+        
+            getTask(id,token)
+          
+   ) 
   );
 
-  const [modalOpened, setModalOpened] = useState(false);
   const { validateLogin } = useAuthCheck();
   const { user } = useAuth0();
   const navigate=useNavigate()
@@ -55,59 +61,19 @@ export const Task = () => {
     );
   }
   return (
-    // <div className="wrapper">
-    //   <div className="flexColStart paddings innerWidth property-container">
-    //     {/*  Add to favourite button */}
-    //     <div className="like">
-    //        <Heart id={id}/>
-    //     </div>
-
-    //     <div className="flexCenter property-details">
-
-    //       <div className="flexColStart left">
-    //         {/*head */}
-    //         <div className="flexStart head">
-    //             {/* title */}
-    //           <span className="primaryText">{data?.title}</span>
-    //         </div>
-
-    //         {/*description */}
-    //         <span className="secondaryText" style={{ textAlign: "justify" }}>
-    //           {data?.description}
-    //         </span>
-
-    //          {/* buttons */}
-    //          <div className="flexStart facilities">
-    //           {/* Delete Button */}
-    //           <div className="flexStart facility">
-
-    //             <DeleteSingleTask id={id} size={20}  />
-    //           </div>
-
-    //         </div>
-
-    //       </div>
-
-    //     </div>
-    //   </div>
-    // </div>
+   
 
     <div className="wrapper">
       <div className="flexColCenter paddings innerWidth properties-container">
         <div className="paddings flexCenter single-properties">
+          {
+            task ?
+          (
           <div className="flexColStart ">
             <div className="primaryText text">{task.title}</div>
             <div className="divider"></div>
             <div className="secondaryText text">{task.description}</div>
-            {/* <span className="flexStart secondaryText r-bottom">
-              <span className="flexStart ">
-               <div className='deadline-text primaryText'>Deadline: </div><div className="deadline"> {task.deadline}</div>
-              </span>
-              <div className='flexStart'>
-              <div className=" deadline-text primaryText">Status: <div className='task-status'>{task.status}</div> </div>
-
-              </div>
-            </span> */}
+          
             <div className="flexStart taskProp">
                 <div className="flexStart taskDeadline  primaryText">
                     <div >Deadline: </div>
@@ -124,7 +90,10 @@ export const Task = () => {
               <Heart id={task?.id} />
               <DeleteSingleTask id={task?.id} />
             </div>
-          </div>
+          </div>):
+          <div className='primaryText'></div>
+
+           }
         </div>
       </div>
     </div>

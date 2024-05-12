@@ -4,10 +4,10 @@ import { createTask,getAllTasks,getTask,updateTask,deleteTask,getTaskIDs } from 
 const router=express.Router()
 
 router.post("/create",jwtCheck,createTask)
-router.post("/alltask",getAllTasks)
+router.post("/alltask",jwtCheck, getAllTasks)
 router.post("/task-ids",jwtCheck,getTaskIDs)
-router.get("/:id",getTask)
-router.put("/:id",updateTask)
-router.delete("/:id",deleteTask)
+router.get("/:id",jwtCheck,getTask)
+router.put("/:id",jwtCheck,updateTask)
+router.delete("/:id",jwtCheck,deleteTask)
 
 export {router as taskRoute};

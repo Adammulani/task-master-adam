@@ -132,7 +132,7 @@ export const toFavTask=asyncHandler(async(req,res)=>{
   })
   
 
-  //function to get  of all fav residencies
+  //function to get  of all fav tasks
 export const getAllFavouriteTasks=asyncHandler(async(req,res)=>{
 
     const {email}=req.body

@@ -8,13 +8,13 @@ import UserDetailContext from '../../context/userDetailContext.js';
  const useTasks = () => {
     const {user}=useAuth0()
     const {userDetails}=useContext(UserDetailContext)
-    // const{userDetails:{token}}=useContext(UserDetailContext);
+     const{userDetails:{token}}=useContext(UserDetailContext);
     // console.log(token)
 
 
   const {data,isLoading,isError,refetch}=useQuery(
       "allTasks",   // this is the name/key
-      ()=>getAllTasks(user?.email),
+      ()=>getAllTasks(user?.email,token),
       {refetchOnWindowFocus:false}
   );
   
