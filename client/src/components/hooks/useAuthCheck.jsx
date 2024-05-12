@@ -7,7 +7,7 @@ export const useAuthCheck = () =>{
 
     const validateLogin=()=>{
         if(!isAuthenticated){
-            toast.error("You must be logged in",{position:"bottom-right"})
+            toast.error("You must be logged in",{position:"top-right"})
             return false
         }
         else return true

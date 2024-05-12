@@ -86,7 +86,7 @@ export const AddNewTask = () => {
       },token),
       onError:({response})=>toast.error(response.data.message,{position:"bottom-right"}),
       onSettled:()=>{
-        toast.success("Task Added Successfully", { position: "bottom-right" });
+        toast.success("Task Added Successfully",{position:"top-right"});
         setTaskDetails({
           title: "",
           description: "",

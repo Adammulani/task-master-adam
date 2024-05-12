@@ -112,7 +112,7 @@ export const EditTask = () => {
       },token),
       onError:({response})=>toast.error(response.data.message,{position:"bottom-right"}),
       onSettled:()=>{
-        toast.success("Updated Successfully", { position: "bottom-right" });
+        toast.success("Updated Successfully", { position: "top-right" });
         setTaskDetails({
           title: "",
           description: "",
