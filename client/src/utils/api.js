@@ -3,7 +3,7 @@ import dayjs from "dayjs";
 import { toast } from "react-toastify";
 
 export const api = axios.create({
-  baseURL: "http://localhost:3001/api/v1",
+  baseURL: "https://task-master-adam.vercel.app/api/v1",
 });
 
 /// from here on words all the api calls are of Task
