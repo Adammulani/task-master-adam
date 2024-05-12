@@ -64,15 +64,16 @@ export const Task = () => {
    
 
     <div className="wrapper">
-      <div className="flexColCenter paddings innerWidth properties-container">
+      <div className="flexColCenter paddings innerWidth properties-container ">
         <div className="paddings flexCenter single-properties">
+         
           {
             task ?
           (
-          <div className="flexColStart ">
-            <div className="primaryText text">{task.title}</div>
+          <div className="flexColStart  ">
+            <div className="primaryText text task-title">{task.title}</div>
             <div className="divider"></div>
-            <div className="secondaryText text">{task.description}</div>
+            <div className="secondaryText text tesk-description">{task.description}</div>
           
             <div className="flexStart taskProp">
                 <div className="flexStart taskDeadline  primaryText">
@@ -94,6 +95,7 @@ export const Task = () => {
           <div className='primaryText'></div>
 
            }
+           
         </div>
       </div>
     </div>

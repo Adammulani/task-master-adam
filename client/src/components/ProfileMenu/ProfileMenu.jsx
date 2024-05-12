@@ -17,9 +17,7 @@ const ProfileMenu = ({user,logout}) => {
                 Favourites
             </Menu.Item>
 
-            <Menu.Item onClick={()=>navigate("./bookings", {replace:true})}>
-                Bookings
-            </Menu.Item>
+            
 
             <Menu.Item onClick={()=>{
                 localStorage.clear();

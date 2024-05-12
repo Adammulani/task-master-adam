@@ -16,7 +16,7 @@ export const TaskCard = ({task}) => {
     onClick={()=>navigate(`../tasks/${task?.id}`)} >
           
       <span className="primaryText text">{truncate(task.title,{length:30})}</span>
-      <span className="secondaryText text-description text">{truncate( task.description,{length:100})}</span>
+      <span className="secondaryText text-description text">{truncate( task.description,{length:40})}</span>
       <span className="secondaryText r-bottom">
       <span><div className='secondaryText deadlineText'>Deadline:</div>{task.deadline}</span>
         <span><div className='SecondaryText deadlineText'>Status:</div>{task.status}</span>
