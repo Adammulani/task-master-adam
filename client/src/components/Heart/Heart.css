@@ -1,0 +1,10 @@
+.icon-container{
+   background-color: gray;
+   border-radius: 50%;
+   height: 1.5rem;
+   width: 1.5rem;
+   padding: 0.2rem;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}

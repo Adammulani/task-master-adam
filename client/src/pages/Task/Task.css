@@ -1,0 +1,141 @@
+.property-container{
+    gap:2rem;
+    position: relative;
+}
+.single-properties{
+    border: 1px solid #ccc; /* Soft gray border */
+  border-radius: 10px; /* Optional: Rounded corners */
+}
+
+.property-container .like{
+    position: absolute;
+    top: 3rem;
+    right: 3rem;
+    cursor: pointer;
+}
+.text{
+    text-align: justify;
+  
+}
+.task-status{
+    color: yellow;
+}
+.taskProp{
+    justify-content: space-between;
+    width: 100%;
+    
+}
+.bottomLine{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.taskDeadline{
+    font-size: 1rem;
+    gap: 0.3rem;
+}
+.taskStatus{
+    font-size: 1rem;
+    gap: 0.3rem;
+}
+.statusText{
+    font-size: 0.8rem;
+    margin-top: 0.1rem;
+}
+.deadlineDate{
+    font-size: 0.8rem;
+    margin-top: 0.1rem;
+    color:#d81159 ;
+}
+.deadline{
+    color:#d81159;
+    font-size: 0.8rem;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+}
+.deadline-text{
+    font-weight: 600;
+    font-size: 1rem;
+
+}
+
+.bottom-buttons{
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    padding-left: 0;
+}
+
+.r-bottom{
+    display: flex;
+    gap: 1rem;
+}
+
+.property-container>img{
+    align-self: center;
+    max-height: 35rem;
+    width: 100%;
+    border-radius: 1rem;
+    object-fit: cover;
+}
+
+.property-details{
+    width: 100%;
+    gap: 2rem;
+    justify-content: space-between;
+}
+.property-details>div{
+    flex: 1;
+    gap: 1.5rem;
+}
+.property-details .left .head{
+    justify-content: space-between;
+    width: 100%;
+}
+
+.facilities{
+    gap: 1rem;
+    font-size: 0.9rem;
+    padding: 1rem;
+}
+
+.facility{
+    gap: 0.5rem;
+}
+
+.property-details .button{
+    width: 100%;
+    margin-top: 1rem;
+}
+
+
+
+@media (max-width:700px){
+    .property-container>div{
+        flex-direction: column;
+    }
+    .head{
+        flex-direction: column;
+    }
+    .facilities{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .property-details>div{
+        width: 100%;
+    }
+   
+}
+.properties-container{
+    gap:2rem;
+}
+
+
+.divider {
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5); /* 50% opacity black line */
+    margin: 10px 0; /* Adjust margin as needed */
+  }
+  

@@ -1,0 +1,34 @@
+generator client{
+    provider = "prisma-client-js"
+}
+
+datasource db{
+    provider = "mongodb"
+    url = env("DATABASE_URL")
+}
+
+
+model Usert{
+    id String @id @default(auto()) @map("_id") @db.ObjectId
+    //make a field with the name of id in the collection of user with the type String, it is id of mongodb generated automatically, giving representation _id
+    name String?
+    email String @unique  //identify each user by email
+    taskCreated Json[]
+    favTasks String[] @db.ObjectId
+   ownedTasks Task[] @relation("Owner")
+    
+}
+model Task{
+        id String @id @default(auto()) @map("_id") @db.ObjectId
+        title String
+        description String
+        status String
+        userEmail String
+        deadline String
+        owner Usert @relation("Owner",fields: [userEmail],references: [email])
+        createdAt DateTime @default(now())
+        updatedAt DateTime @updatedAt
+
+       
+}
+
