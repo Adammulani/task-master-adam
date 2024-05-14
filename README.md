@@ -1,11 +1,20 @@
 # Task Master
 
-**Important Note**: Allow popups in your browser settings to ensure proper functionality of the website.
+**Important Note**:------------------- Allow popups in your browser settings to ensure proper functionality of the website.----------------------------------------
 
 
 ## Description
 
 This project is a web application that allows users to manage tasks. It provides features like user authentication, storing data on the cloud, task management, and more.
+
+## API Documentation
+https://drive.google.com/file/d/1VI-nX2zGpeQRR01j18eYav48m7_qYLRa/view?usp=drive_link
+
+
+## Description
+
+This project is a web application that allows users to manage tasks. It provides features like user authentication, storing data on the cloud, task management, and more.
+
 
 ## Technologies Used
 
