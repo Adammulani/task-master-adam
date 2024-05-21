@@ -18,7 +18,9 @@ export const useFavourites = () => {
         staleTime:30000
     })
 
-    queryRef.current=refetch;
+    queryRef.current=refetch; //you do not lose the reference to the refetch function when the component re-renders.
+    //refetch function stored in queryRef.current
+    
     useEffect(()=>{
 
       queryRef.current && queryRef.current()

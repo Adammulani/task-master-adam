@@ -35,7 +35,7 @@ export const Task = () => {
   const navigate=useNavigate()
 
   const {
-    userDetails: { myTasks, bookings },
+    userDetails: { myTasks },
     setUserDetails,
   } = useContext(UserDetailContext);
 

@@ -33,7 +33,7 @@ export const createUser = asyncHandler(async (req, res) => {
  
 });
 
-//function to get all the tasks created by user
+//function to get all the tasks created by user , need to remove this from usertController
 export const getAllTasks=asyncHandler(async(req,res)=>{
     const {email}=req.body;
     try{
@@ -93,7 +93,7 @@ export const getAllTasks=asyncHandler(async(req,res)=>{
   })
   
 
-  //function to add a residency in a favourite list of a user
+  //function to add a task in a favourite list of a user
 export const toFavTask=asyncHandler(async(req,res)=>{
     const {email}=req.body;
     const {tid}=req.params;
